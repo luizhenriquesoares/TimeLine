@@ -10,7 +10,7 @@ var config = {
 };
 
 // resources/assets/bower_components
-config.bower_path = config.assets_path + '/../bower_components';
+config.bower_path = config.assets_path + '/bower_components';
 
 // public/build/js
 config.build_path_js = config.build_path + '/js';
@@ -30,8 +30,9 @@ config.vendor_path_js = [
     config.bower_path + '/angular-bootstrap/ui-bootstrap.min.js',
     config.bower_path + '/angular-strap/dist/modules/navbar.min.js',
     config.bower_path + '/angular-cookies/angular-cookies.min.js',
-    config.bower_path + '/query-string/query-string.js',
+    config.bower_path + '/query-string/query-string.js'
 ];
+
 
 // public/build/css
 config.build_path_css = config.build_path + '/css';
@@ -124,6 +125,7 @@ gulp.task('copy-scripts', function () {
         .pipe(gulp.dest(config.build_vendor_path_js))
         .pipe(liveReload());
 });
+
 
 /* Task 6 - Tarefa para limpar pasta public/build */
 //
