@@ -5,7 +5,8 @@ gulp = require('gulp');
 /* variaveis de configurações */
 var config = {
     assets_path: './resources/assets',
-    build_path: './public/build'
+    build_path: './public/build',
+    app_path:   './app'
 };
 
 // resources/assets/bower_components
@@ -84,6 +85,17 @@ gulp.task('copy-html', function () {
         .pipe(liveReload());
 });
 
+/* Task 3 - Copiar Arquivos html - index - Modo desenvolvimento */
+// assert/js/
+gulp.task('copy-html', function () {
+    gulp.src([
+        config.app_path + '/js/**/*.html'
+    ])
+        .pipe(gulp.dest(config.build_path))
+        .pipe(liveReload());
+});
+
+
 /* Task 4 - Copiar Arquivos css - Modo desenvolvimento */
 //public/build/css
 gulp.task('copy-styles', function () {
@@ -103,7 +115,7 @@ gulp.task('copy-styles', function () {
 gulp.task('copy-scripts', function () {
 
     gulp.src([
-        config.assets_path + '/js/**/*.js'
+        config.app_path + '/js/**/*.js'
     ])
         .pipe(gulp.dest(config.build_path_js))
         .pipe(liveReload());
@@ -118,7 +130,7 @@ gulp.task('copy-scripts', function () {
 gulp.task('clear-build-folder', function () {
     clean.sync(config.build_path);
 });
-]
+
 /* Task 7 - Tarefa para modo desenvolvimento public/build */
 // tarefa watch-dev
 gulp.task('watch-dev', ['clear-build-folder'], function () {
