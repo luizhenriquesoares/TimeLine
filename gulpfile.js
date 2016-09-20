@@ -5,8 +5,9 @@ gulp = require('gulp');
 /* variaveis de configurações */
 var config = {
     assets_path: './resources/assets',
-    build_path: './public/build',
-    app_path:   './app'
+    build_path:  './public/build',
+    app_path:    './app',
+    public_path: './public'
 };
 
 // resources/assets/bower_components
@@ -80,22 +81,17 @@ gulp.task('copy-image', function () {
 // assert/js/views
 gulp.task('copy-html', function () {
     gulp.src([
-        config.assets_path + '/js/views/**/*.html'
+        config.app_path + '/js/views/**/*.html'
     ])
         .pipe(gulp.dest(config.build_path_html))
         .pipe(liveReload());
-});
 
-/* Task 3 - Copiar Arquivos html - index - Modo desenvolvimento */
-// assert/js/
-gulp.task('copy-html', function () {
     gulp.src([
-        config.app_path + '/js/**/*.html'
+        config.app_path + '/**/*.html'
     ])
-        .pipe(gulp.dest(config.build_path))
+        .pipe(gulp.dest(config.public_path))
         .pipe(liveReload());
 });
-
 
 /* Task 4 - Copiar Arquivos css - Modo desenvolvimento */
 //public/build/css
