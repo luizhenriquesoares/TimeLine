@@ -1,19 +1,20 @@
-angular.module('app',
-    ['app.controllers', 'app.services']);
+'use strict';
 
-angular.module('app.controllers', []);
-angular.module('app.services', ['ngResource'])
+angular.module('app.controllers',[]);
+angular.module('app.services', []);
+
+angular.module('app',['app.controllers', 'app.services', 'ui.router', 'ngResource'])
 
 .constant('appConfig', {
-    baseUrl: 'http://vagalumewifi.com.br/timeline.json'
+    baseUrl: 'http://localhost:8000'
 })
 
-.config(function ($stateProvider) {
+.config(['$stateProvider',function ($stateProvider) {
 
     $stateProvider
-        .state('home', {
-            url: '/login',
-            templateUrl: 'views/home.html',
-            controller: 'HomeCtrl'
-        })
-});
+        .state('timeline', {
+            url: '/home',
+            templateUrl: 'build/views/home.html',
+            controller: 'TimeLineCtrl'
+        });
+}]);

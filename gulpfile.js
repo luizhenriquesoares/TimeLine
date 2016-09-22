@@ -34,7 +34,6 @@ config.vendor_path_js = [
     config.bower_path + '/query-string/query-string.js'
 ];
 
-
 // public/build/css
 config.build_path_css = config.build_path + '/css';
 
@@ -87,7 +86,7 @@ gulp.task('copy-html', function () {
         .pipe(liveReload());
 
     gulp.src([
-        config.app_path + '/**/*.html'
+        config.app_path + '/*.html'
     ])
         .pipe(gulp.dest(config.public_path))
         .pipe(liveReload());

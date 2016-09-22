@@ -1,1 +1,47 @@
-teste
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Time Line</title>
+
+    <!-- Bootstrap -->
+    <link href="build/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="build/css/vendor/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="app">
+
+<ui-view></ui-view>
+
+<script src="build/js/vendor/angular.min.js"></script>
+<script src="build/js/vendor/angular-ui-router.min.js"></script>
+<script src="build/js/vendor/angular-resource.min.js"></script>
+<script src="build/js/vendor/angular-animate.min.js"></script>
+<script src="build/js/vendor/angular-messages.min.js"></script>
+<script src="build/js/vendor/ui-bootstrap.min.js"></script>
+<script src="build/js/vendor/angular-cookies.min.js"></script>
+
+<!-- APP!-->
+<script src="build/js/app.js"></script>
+
+<!-- CONTROLLERS !-->
+<script src="build/js/controllers/timeline/home.js"></script>
+
+<!-- SERVICES !-->
+<script src="build/js/services/timeLine.js"></script>
+
+
+<!-- jQuery (necessary for Bootstraps JavaScript plugins -->
+<script src="build/js/vendor/jquery.min.js"></script>
+
+</body>
+</html>
