@@ -96,7 +96,7 @@ gulp.task('copy-html', function () {
 //public/build/css
 gulp.task('copy-styles', function () {
     gulp.src([
-        config.assets_path + '/css/**/*.css'
+        config.assets_path + '/css/*.css'
     ])
         .pipe(gulp.dest(config.build_path_css))
         .pipe(liveReload());
