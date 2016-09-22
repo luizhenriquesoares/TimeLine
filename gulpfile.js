@@ -1,5 +1,6 @@
 var liveReload = require('gulp-livereload'),
 clean = require('rimraf'),
+sass = require('gulp-sass'),
 gulp = require('gulp');
 
 /* variaveis de configurações */
@@ -36,6 +37,7 @@ config.vendor_path_js = [
 
 // public/build/css
 config.build_path_css = config.build_path + '/css';
+
 
 // public/build/css/vendor
 config.build_vendor_path_css = config.build_path_css + '/vendor';
@@ -121,6 +123,17 @@ gulp.task('copy-scripts', function () {
         .pipe(liveReload());
 });
 
+/* Task 6 Compilar Sass*/
+gulp.task('sass', function () {
+
+    gulp.src([
+        config.assets_path + '/sass/**/*.scss'
+    ])
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(gulp.dest(config.build_path_css))
+        .pipe(liveReload());
+});
+
 
 /* Task 6 - Tarefa para limpar pasta public/build */
 //
@@ -132,6 +145,6 @@ gulp.task('clear-build-folder', function () {
 // tarefa watch-dev
 gulp.task('watch-dev', ['clear-build-folder'], function () {
     liveReload.listen();
-    gulp.start('copy-styles', 'copy-scripts', 'copy-html','copy-font', 'copy-image');
-    gulp.watch(config.assets_path + '/**', ['copy-styles', 'copy-scripts', 'copy-html']);
+    gulp.start('copy-styles', 'copy-scripts', 'copy-html','copy-font', 'copy-image', 'sass');
+    gulp.watch(config.assets_path + '/**', ['copy-styles', 'copy-scripts', 'copy-html', 'sass']);
 });
