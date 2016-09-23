@@ -1,15 +1,17 @@
 <div class="container">
   <div class="page-header">
-    <h1 id="timeline">Timeline</h1>
+    <h1 id="timeline">Time Line Dark Responsive With AngularJs</h1>
   </div>
+
   <ul class="timeline" ng-repeat="item in data">
+      <li><div class="tldate">Apr 2016</div></li>
     <li ng-class="{'timeline-inverted': $index % 2}">
-      <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+        <div class="tl-circ"></div>
+        <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
       <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title">{{item.user.location}}</h4>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Nome: {{item.user.username}} - Data: {{item.date}} </small></p>
-        </div>
+        <div class="tl-heading">
+          <h4 class="timeline-title">Nome: {{ item.user.username}}</h4>
+          <p><small class="text-muted"><i class="fa fa-clock-o"></i> Data: {{ item.date}} </small></p>
         <div>
           <figure class="thumbnails">
             <img src="{{item.user.picture}}"  class="img-responsive" alt="Photo TimeLine" />
@@ -18,15 +20,16 @@
               <p>{{item.user.bio}}</p>
            </figcaption>
           </figure>
-          
+        <figure>
           <figcaption class="caption">
             <h3>Post</h3>
             <p>{{item.content}}</p>
+              <p><small><i class="fa fa-thumbs-o-up"></i> Likes: {{ item.likes}} </small></p>
          </figcaption>
         </figure>
-
         </div>
       </div>
+     </div>
     </li>
   </ul>
 </div>

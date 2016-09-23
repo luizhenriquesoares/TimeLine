@@ -61,12 +61,17 @@ config.build_path_image = config.build_path + '/images';
 // public/build/fonts
 gulp.task('copy-font', function () {
     gulp.src([
-        config.assets_path + '/fonts/**/*'
+        config.bower_path + '/bootstrap/fonts/**/*'
+    ])
+        .pipe(gulp.dest(config.build_path_font))
+        .pipe(liveReload());
+
+    gulp.src([
+        config.bower_path + '/font-awesome/fonts/**/*'
     ])
         .pipe(gulp.dest(config.build_path_font))
         .pipe(liveReload());
 });
-
 
 /*Task 2 - Copiar Arquivos images - Modo desenvolvimento */
 // public/build/images
