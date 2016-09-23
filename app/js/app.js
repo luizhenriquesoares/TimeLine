@@ -2,8 +2,9 @@
 
 angular.module('app.controllers',[]);
 angular.module('app.services', []);
+angular.module('app.filters', []);
 
-angular.module('app',['app.controllers', 'app.services', 'ui.router', 'ngResource'])
+angular.module('app',['app.controllers', 'app.filters', 'app.services', 'ui.router', 'ngResource'])
 
 .constant('appConfig', {
     baseUrl: 'http://localhost:8000'
